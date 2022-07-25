@@ -1,10 +1,23 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, Text, View } from 'react-native';
+import {
+  FlatList,
+  ListRenderItem,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  View,
+} from 'react-native';
 import Home from './screens/Home';
 import useFetch from './hooks/useFetch';
+import EventCard from './components/cards/EventCard';
+import { IItem } from './@types/item';
 
 const App = () => {
   const { data, error } = useFetch('https://api.spacexdata.com/v3/launches');
+
+  const renderItem: ListRenderItem<IItem> = ({ item }) => (
+    <EventCard {...item} />
+  );
 
   if (error) {
     // TODO: error screen
@@ -27,7 +40,9 @@ const App = () => {
   return (
     <SafeAreaView style={{ backgroundColor: '#fff' }}>
       <StatusBar barStyle={'dark-content'} />
-      <Home />
+      <Home>
+        <FlatList data={data} renderItem={renderItem} />
+      </Home>
     </SafeAreaView>
   );
 };
