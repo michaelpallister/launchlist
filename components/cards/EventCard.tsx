@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { formatUKDate } from '../../utils/helpers';
+import { globalStyles } from '../../styles/global';
 
 import { IItem } from '../../@types/item';
 
@@ -33,23 +34,23 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   number: {
-    color: '#545454',
+    color: globalStyles.colors.grey,
     fontSize: 20,
     fontWeight: '500',
     marginRight: 16,
   },
   name: {
-    color: '#545454',
+    color: globalStyles.colors.grey,
     fontSize: 16,
     fontWeight: '500',
     flex: 1,
   },
   date: {
-    color: '#545454',
+    color: globalStyles.colors.grey,
     fontSize: 12,
   },
   rocket: {
-    color: '#545454',
+    color: globalStyles.colors.grey,
     fontWeight: '700',
     textAlign: 'right',
   },
