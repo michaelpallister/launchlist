@@ -30,17 +30,26 @@ const Header = () => {
           <View style={styles.modalView}>
             <Pressable
               style={[styles.modalButton, styles.buttonClose]}
-              onPress={() => setLaunchYear('2016')}>
+              onPress={() => {
+                setLaunchYear('2016');
+                setModalVisible(!modalVisible);
+              }}>
               <Text style={styles.textStyle}>2016</Text>
             </Pressable>
             <Pressable
               style={[styles.modalButton, styles.buttonClose]}
-              onPress={() => setLaunchYear('2018')}>
+              onPress={() => {
+                setLaunchYear('2018');
+                setModalVisible(!modalVisible);
+              }}>
               <Text style={styles.textStyle}>2018</Text>
             </Pressable>
             <Pressable
               style={[styles.modalButton, styles.buttonClose]}
-              onPress={() => setLaunchYear('2020')}>
+              onPress={() => {
+                setLaunchYear('2020');
+                setModalVisible(!modalVisible);
+              }}>
               <Text style={styles.textStyle}>2020</Text>
             </Pressable>
             <Pressable
