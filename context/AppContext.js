@@ -10,11 +10,17 @@ export function AppProvider({ children }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [sort, setSort] = useState('asc');
+  const [year, setLaunchYear] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(year);
       try {
-        const response = await fetch('https://api.spacexdata.com/v3/launches');
+        const response = await fetch(
+          `https://api.spacexdata.com/v3/launches${
+            year ? `?launch_year=${year}` : ''
+          }`,
+        );
         const results = await response.json();
 
         if (sort === 'desc') {
@@ -29,11 +35,9 @@ export function AppProvider({ children }) {
     };
 
     fetchData();
-  }, [sort]);
+  }, [sort, year]);
 
-  const handleSort = value => setSort(value);
-
-  const value = { data, error, sort, handleSort };
+  const value = { data, error, sort, setSort, setLaunchYear };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

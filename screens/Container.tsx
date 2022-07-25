@@ -17,7 +17,13 @@ const Container: FC<PropsWithChildren> = ({ children }) => {
   if (!data) {
     // TODO: loading screen
     return (
-      <SafeAreaView style={{ backgroundColor: '#fff' }}>
+      <SafeAreaView
+        style={{
+          backgroundColor: '#fff',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         <Text>Loading...</Text>
       </SafeAreaView>
     );
