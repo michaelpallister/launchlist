@@ -31,6 +31,14 @@ const Header = () => {
             <Pressable
               style={[styles.modalButton, styles.buttonClose]}
               onPress={() => {
+                setLaunchYear(null);
+                setModalVisible(!modalVisible);
+              }}>
+              <Text style={styles.textStyle}>All</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.modalButton, styles.buttonClose]}
+              onPress={() => {
                 setLaunchYear('2016');
                 setModalVisible(!modalVisible);
               }}>
@@ -55,7 +63,6 @@ const Header = () => {
             <Pressable
               style={[styles.modalButton, styles.buttonClose]}
               onPress={() => {
-                setLaunchYear(null);
                 setModalVisible(!modalVisible);
               }}>
               <Text style={styles.textStyle}>Hide Modal</Text>
